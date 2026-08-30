@@ -1,4 +1,4 @@
-package Tarea2.AlgoritmoGraham;
+package Tarea3.AlgoritmoGraham;
 
 public class Vector {
     private Punto p1;

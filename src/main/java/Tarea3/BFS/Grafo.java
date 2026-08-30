@@ -1,4 +1,4 @@
-package Tarea2.BFS;
+package Tarea3.BFS;
 
 import java.util.*;
 
