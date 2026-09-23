@@ -33,7 +33,29 @@ public class Gato {
             return new Movida(mejorCasilla,mejorPuntuacion);
         }
         else {
-            return null;
+            for (int i=0;i<9;i++){
+                if (tablero[i] !='_') {
+                    continue;
+
+                }
+
+                tablero[i]=cj;
+                int puntuacion= evaluaPosicion(tablero);
+                Movida movidaHijo=minimax(tablero,!juegaTache,profundidad-1);
+                puntuacion=puntuacion+ movidaHijo.puntuacion;
+                if (juegaTache){
+                    if (puntuacion> mejorPuntuacion){
+                        mejorPuntuacion=puntuacion;
+                        mejorCasilla=i;
+                    }
+                }else{
+                    if (puntuacion> mejorPuntuacion){
+                        mejorPuntuacion=puntuacion;
+                        mejorCasilla=i;
+                    }
+                }
+            }
+            return new Movida(mejorCasilla,mejorPuntuacion);
         }
     }
 
@@ -78,12 +100,14 @@ public class Gato {
         }
         return  false;
     }
-    public static void main(String[] args) {
-        char[] tablero= new char[]{
-                '_','_','_',
-                '_','_','_',
-                '_','_','_'
-        };
-        System.out.println(evaluaPosicion(tablero));
-    }
+//    public static void main(String[] args) {
+//        char[] tablero= new char[]{
+//                '_','x','_',
+//                '_','o','_',
+//                '_','_','_'
+//        };
+//        System.out.println(evaluaPosicion(tablero));
+//        Movida m=minimax(tablero,false,1);
+//        System.out.println(m.casilla);
+//    }
 }
