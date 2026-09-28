@@ -1,4 +1,4 @@
-package Diccionarios;
+package Tarea6;
 
 public class UtilsTexto {
     public static int numLetras(String texto){
